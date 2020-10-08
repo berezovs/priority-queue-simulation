@@ -1,8 +1,12 @@
 #include "Customer.hpp"
 
-Customer::Customer(float arrivalTime)
+ Customer::Customer(float arrivalTime) 
 {
     this->arrivalTime = arrivalTime;
+    this->departureTime = 0;
+    this->next = nullptr;
+    this->previous = nullptr;
+    
 }
 Customer *Customer::getNext()
 {

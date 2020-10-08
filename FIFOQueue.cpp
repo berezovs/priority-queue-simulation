@@ -18,15 +18,32 @@ void FIFOQueue::insertCustomer(Customer *customer)
         temp->setNext(this->tail);
         this->tail->setPrevious(temp);
         temp = nullptr;
-        size++;
+        this->size++;
         return;
     }
     this->head = customer;
     this->tail = customer;
-    size++;
+    this->size++;
 }
 Customer *FIFOQueue::removeCustomer()
 {
+    if (this->head == this->tail)
+    {
+        Customer *customer = this->head;
+        this->head = nullptr;
+        this->tail = nullptr;
+        this->size--;
+        return customer;
+    }
+    else if (this->head != this->tail)
+    {
+        Customer* customer = this->head;
+        this->head = head->getNext();
+        this->head->setPrevious(nullptr);
+        customer->setNext(nullptr);
+        this->size--;
+        return customer;
+    }
     return nullptr;
 }
 int FIFOQueue::getSize()
@@ -46,4 +63,5 @@ void FIFOQueue::printAllArrivals()
         }
         customer = customer->getNext();
     }
+    std::cout<<std::endl;
 }

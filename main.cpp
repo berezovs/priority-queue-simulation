@@ -1,6 +1,7 @@
 #include "Shell.hpp"
 #include "Customer.hpp"
 #include "FIFOQueue.hpp"
+#include <iostream>
 
 int main()
 {
@@ -18,5 +19,12 @@ int main()
     fQueue->insertCustomer(customer4);
 
     fQueue->printAllArrivals();
+    std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
+    fQueue->printAllArrivals();
+    std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
+    fQueue->printAllArrivals();
+    std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
+    fQueue->printAllArrivals();
+    
     return 0;
 }

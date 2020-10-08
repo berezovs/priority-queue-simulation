@@ -9,7 +9,7 @@ void Shell::run()
 {
     const uint32_t MIN_NUM_OF_SERVERS = 1;
     const uint32_t MAX_NUM_OF_SERVERS = 10;
-    uint32_t n, lambda, mu, M;
+    uint32_t n, lambda, mu, M{0};
 
     std::cout << "Enter total number of arrivals(n): ";
     std::cin >> n;

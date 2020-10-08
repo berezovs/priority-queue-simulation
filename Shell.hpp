@@ -1,5 +1,5 @@
 #ifndef SHELL_H
-#define SHEL_H
+#define SHELL_H
 
 class Shell {
     public:

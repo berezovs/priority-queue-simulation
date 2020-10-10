@@ -2,6 +2,7 @@
 #include "Customer.hpp"
 #include "FIFOQueue.hpp"
 #include "Event.hpp"
+#include "analytics.hpp"
 #include <iostream>
 
 #define print std::cout<< 
@@ -29,9 +30,10 @@ int main()
     // std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
     // fQueue->printAllArrivals();
 
+    print analytics::getPo(2,2,3);
     Event *event = new Event(3.14);
 
-    print event->getArrivalTime();
+   // print event->getArrivalTime();
 
     delete event;
     

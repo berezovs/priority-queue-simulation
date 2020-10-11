@@ -4,9 +4,10 @@
 namespace analytics{
     float getPo(float lambda, float M, float mu);
     float getL(float lambda, float Po, float M, float mu);
-    float getW(float lambda, float Po, float M, float mu);
+    float getW(float lambda, float L);
     float getLq(float L, float lambda, float mu);
-    float getWq(float W, float Lq, float mu, float lambda);
+    float getWq(float Lq, float lambda);
+    float rho(float lambda, float M, float mu);
     int factorial(int factor);
 
 };

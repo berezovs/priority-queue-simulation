@@ -30,7 +30,10 @@ int main()
     // std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
     // fQueue->printAllArrivals();
 
-    print analytics::getPo(2,2,3);
+    print analytics::getLq(0.75,2,3);
+    print std::endl;
+    print analytics::getWq(0.083, 2);
+
     Event *event = new Event(3.14);
 
    // print event->getArrivalTime();

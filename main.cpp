@@ -3,9 +3,11 @@
 #include "FIFOQueue.hpp"
 #include "Event.hpp"
 #include "analytics.hpp"
+#include "EventQueue.hpp"
 #include <iostream>
 
 #define print std::cout<< 
+#define newline std::cout<<std::endl;
 
 int main()
 {
@@ -30,15 +32,29 @@ int main()
     // std::cout<<fQueue->removeCustomer()->getArrivalTime()<<std::endl;
     // fQueue->printAllArrivals();
 
+
     print analytics::getLq(0.75,2,3);
     print std::endl;
     print analytics::getWq(0.083, 2);
 
-    Event *event = new Event(3.14);
+    //Event *event = new Event(3.14);
 
    // print event->getArrivalTime();
 
-    delete event;
+
+    // EventQueue *queue = new EventQueue();
+    // queue->insert(event1);
+    // queue->insert(event2);
+    // queue->insert(event3);
+   
+    // print queue->getNextEvent()->getTime();
+    // newline
+    // queue->removeEvent();
+    // print queue->getNextEvent()->getTime();
+    // newline
+    // delete event1;
+    // delete event2;
+    // delete event3;
     
     return 0;
 }

@@ -5,8 +5,9 @@ CC = g++
 #  -g    adds debugging information to the executable file
 #  -Wall turns on most, but not all, compiler warnings
 CXXFLAGS= -std=c++11 -g -Wall
-
 OBJECTS = main.o Shell.o Customer.o FIFOQueue.o Event.o analytics.o
+
+
 HEADERS := $(shell find . -path ./test -prune -o -name "*.hpp" -print)
 
 main: main.o $(OBJECTS)

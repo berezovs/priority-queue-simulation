@@ -1,18 +1,16 @@
 #include "Event.hpp"
 
-Event::Event(float arrivalTime): arrivalTime{arrivalTime}, departureTime{0}
+Event::Event(float time, bool departure): time{time}, departure{departure}
 {
 
 }
 
-float Event::getArrivalTime()const{
-    return this->arrivalTime;
+float Event::getTime()const{
+    return this->time;
 }
 
-float Event::getDepartureTime()const{
-    return this->departureTime;
+
+bool Event::isDeparture() const{
+    return this->departure;
 }
 
-void Event::setDepartureTime(const float departureTime){
-    this->departureTime = departureTime;
-}

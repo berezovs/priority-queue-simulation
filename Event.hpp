@@ -3,13 +3,14 @@
 
 class Event{
 public:
-Event(float arrivalTime);
-float getArrivalTime() const;
-float getDepartureTime() const;
-void setDepartureTime(const float departureTime);
+Event(float Time, bool departure);
+float getTime() const;
+bool isDeparture() const;
+
 
 private:
-float arrivalTime, departureTime;
+float time;
+bool departure;
 };
 
 #endif

@@ -18,6 +18,7 @@ Event *EventQueue::getNextEvent()
 void EventQueue::removeEvent()
 {
     this->eventQueue.pop();
+    this->size--;
 }
 void EventQueue::insert(Event *event)
 {

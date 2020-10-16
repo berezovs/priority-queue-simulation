@@ -30,10 +30,17 @@ void EventLoop::loop()
     int counter = 0;
     while (!this->EQueue->isEmpty())
     {
-        std::cout << "Event #" << ++counter << " " << this->EQueue->getNextEvent()->getTime() << std::endl;
-        this->EQueue->removeEvent();
-        //this->processNextEvent();
+
+        this->processNextEvent();
+        //std::cout<<this->EQueue->getSize()<<std::endl;
     }
+
+    // while (!this->EQueue->isEmpty())
+    // {
+    //     std::cout << "Event #" << ++counter << " " << this->EQueue->getNextEvent()->getTime() << std::endl;
+    //     this->EQueue->removeEvent();
+    //     // this->processNextEvent();
+    // }
 }
 
 void EventLoop::loadFirstArrivals(uint32_t arrivals)
@@ -53,15 +60,38 @@ void EventLoop::processNextEvent()
     {
         if (this->serverAvailableCount > 0)
         {
+            std::cout<<"Processed an arrival"<<std::endl;
             this->serverAvailableCount--;
             startOfServiceTime = event->getTime();
             interval = this->getNextRandomInterval(this->mu);
             departureTime = startOfServiceTime + interval;
             Event *departureEvent = new Event(departureTime, true);
+            EQueue->removeEvent();
+            this->EQueue->insert(departureEvent);
+        }
+        else
+        {
+            std::cout<<"Added an event into FIFO queue"<<std::endl;
+            this->EQueue->removeEvent();
+            this->FQueue->insertCustomer(new Customer(event->getTime()));
+            
         }
     }
     else
     {
-        /* code */
+        this->EQueue->removeEvent();
+        this->serverAvailableCount++;
+        if (this->FQueue->getSize() > 0)
+        {
+            std::cout<<"Processed a departure"<<std::endl;
+            FQueue->removeCustomer();
+            startOfServiceTime = event->getTime();
+            interval = this->getNextRandomInterval(mu);
+            departureTime = startOfServiceTime;
+            Event *departureEvent = new Event(departureTime, true);
+            EQueue->insert(event);
+            this->serverAvailableCount--;
+        }
     }
+    
 }

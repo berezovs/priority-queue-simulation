@@ -8,7 +8,7 @@ EventQueue::EventQueue() : eventQueue{}, size{0}
 
 bool Comparator::operator()(Event *lhs, Event *rhs)
 {
-    return lhs->getTime() < rhs->getTime();
+    return lhs->getTime() > rhs->getTime();
 }
 
 Event *EventQueue::getNextEvent()

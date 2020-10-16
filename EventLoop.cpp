@@ -14,8 +14,7 @@ EventLoop::EventLoop(float n, float lambda, float mu, float M) : totalNumberOfAr
     this->customerWaitedCount = 0;
     this->iddleTime = 0.0f;
     this->currentWaitTime = 0.0f;
-    this->serviceTime =0.0f;
-    
+    this->serviceTime = 0.0f;
 }
 
 float EventLoop::getNextRandomInterval(float avg)
@@ -28,14 +27,13 @@ float EventLoop::getNextRandomInterval(float avg)
 void EventLoop::loop()
 {
     this->loadFirstArrivals(200);
-
-    // while (!this->queue->isEmpty())
-    // {
-    //     //std::cout<<"Event #"<<counter<<" "<<this->queue->getNextEvent()->getTime()<<std::endl;
-    //     //this->queue->removeEvent();
-    //     this->processNextEvent();
-
-    // }
+    int counter = 0;
+    while (!this->EQueue->isEmpty())
+    {
+        std::cout << "Event #" << ++counter << " " << this->EQueue->getNextEvent()->getTime() << std::endl;
+        this->EQueue->removeEvent();
+        //this->processNextEvent();
+    }
 }
 
 void EventLoop::loadFirstArrivals(uint32_t arrivals)
@@ -49,7 +47,7 @@ void EventLoop::loadFirstArrivals(uint32_t arrivals)
 void EventLoop::processNextEvent()
 {
     Event *event = this->EQueue->getNextEvent();
-    float interval=0.0f, startOfServiceTime = 0.0f, departureTime=0.0f;
+    float interval = 0.0f, startOfServiceTime = 0.0f, departureTime = 0.0f;
 
     if (!event->isDeparture())
     {

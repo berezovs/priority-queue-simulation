@@ -4,6 +4,7 @@
 #include "Event.hpp"
 #include "analytics.hpp"
 #include "EventQueue.hpp"
+#include "EventLoop.hpp"
 #include <iostream>
 
 #define print std::cout<< 
@@ -36,6 +37,15 @@ int main()
     print analytics::getLq(0.75,2,3);
     print std::endl;
     print analytics::getWq(0.083, 2);
+
+    EventLoop *loop = new EventLoop(3.0,3.0,3.0,3.0);
+    
+
+    for(int i = 0; i<15; ++i){
+            print loop->getNextRandomInterval(3);
+            newline
+    }
+
 
     //Event *event = new Event(3.14);
 

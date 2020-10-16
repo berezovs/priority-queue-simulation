@@ -1,13 +1,21 @@
 #ifndef EVENTLOOP_H
 #define EVENTLOOP_H
 #include <stdint.h>
-class EventLoop{
-    public:
+#include "EventQueue.hpp"
+#include "FIFOQueue.hpp"
+class EventLoop
+{
+public:
     EventLoop(float n, float lambda, float mu, float M);
-    void beginLoop();
     float getNextRandomInterval(float avg);
-    private:
-    float M, mu, lambda, n;
-    uint32_t firstArrivals;
+    void loop();
+    void loadFirstArrivals(uint32_t arrivals);
+    void processNextEvent();
+
+private:
+    float serverAvailableCount, mu, lambda, totalNumberOfArrivals,  iddleTime, serviceTime, currentWaitTime;
+    uint32_t numOfFirstArrivals, customerWaitedCount;
+    EventQueue *EQueue;
+    FIFOQueue *FQueue;
 };
 #endif

@@ -34,17 +34,20 @@ int main()
     // fQueue->printAllArrivals();
 
 
-    print analytics::getLq(0.75,2,3);
-    print std::endl;
-    print analytics::getWq(0.083, 2);
+    // print analytics::getLq(0.75,2,3);
+    // print std::endl;
+    // print analytics::getWq(0.083, 2);
 
     EventLoop *loop = new EventLoop(3.0,3.0,3.0,3.0);
     
 
-    for(int i = 0; i<15; ++i){
-            print loop->getNextRandomInterval(3);
-            newline
-    }
+    // for(int i = 0; i<15; ++i){
+    //         print loop->getNextRandomInterval(3);
+    //         newline
+    // }
+
+    loop->loop();
+
 
 
     //Event *event = new Event(3.14);

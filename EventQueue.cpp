@@ -1,7 +1,8 @@
 #include "EventQueue.hpp"
 #include "Event.hpp"
 
-EventQueue::EventQueue() : eventQueue{}
+
+EventQueue::EventQueue() : eventQueue{}, size{0}
 {
 }
 
@@ -21,8 +22,17 @@ void EventQueue::removeEvent()
 void EventQueue::insert(Event *event)
 {
     eventQueue.push(event);
+    size++;
 }
 bool EventQueue::isDeparture() const
 {
     return this->eventQueue.top()->isDeparture();
+}
+
+uint32_t EventQueue::getSize(){
+    return this->size;
+} 
+
+bool EventQueue::isEmpty(){
+    return this->eventQueue.empty();
 }

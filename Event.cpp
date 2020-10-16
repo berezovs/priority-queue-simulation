@@ -9,7 +9,6 @@ float Event::getTime()const{
     return this->time;
 }
 
-
 bool Event::isDeparture() const{
     return this->departure;
 }

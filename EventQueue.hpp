@@ -14,14 +14,16 @@ class EventQueue
 
 public:
     EventQueue();
-    Event*  getNextEvent();
+    Event *getNextEvent();
     void removeEvent();
     void insert(Event *event);
     bool isDeparture() const;
+    uint32_t getSize();
+    bool isEmpty();
 
 private:
+    uint32_t size;
     std::priority_queue<Event *, std::vector<Event *>, Comparator> eventQueue;
 };
-
 
 #endif

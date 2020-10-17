@@ -8,15 +8,12 @@ public:
     void setNext(Customer *next);
     Customer *getPrevious();
     void setPrevious(Customer *previous);
-    float getArrivalTime();
-    float getStartOfServiceTime();
-    void setStartOfServiceTime(float startOfServiceTime);
-    float getDepartureTime();
-    void setDepartureTime(float departureTime);
-    float getServiceTime();
+    float getArrivalTime() const;
+    void setQueueTime(float time);
+    float getQueueTime() const;
 
 private:
-    float arrivalTime, startOfServiceTime, departureTime;
+    float arrivalTime, queueTime;
     Customer *next, *previous;
 };
 #endif

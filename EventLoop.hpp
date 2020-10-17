@@ -14,7 +14,7 @@ public:
 
 private:
     float serverAvailableCount, mu, lambda, totalNumberOfArrivals,  iddleTime, serviceTime, currentWaitTime;
-    uint32_t numOfFirstArrivals, customerWaitedCount;
+    uint32_t numOfFirstArrivals, customerWaitedCount, arr, dep;
     EventQueue *EQueue;
     FIFOQueue *FQueue;
 };

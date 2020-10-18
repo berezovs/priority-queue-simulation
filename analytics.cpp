@@ -5,13 +5,13 @@
 float analytics::getPo(float lambda, float M, float mu)
 {
     int counter = 0;
-    float summation = 0;
+    float sum = 0;
     while (counter < M)
     {
-        summation += (1 / factorial(counter)) * pow((lambda / mu), counter);
+        sum += (1 / factorial(counter)) * pow((lambda / mu), counter);
         counter++;
     }
-    return 1 / (summation + ((1 / M) * pow(lambda / mu, M)) * (M / (M * (mu - lambda))));
+    return 1 / (sum + ((1 / M) * pow(lambda / mu, M)) * (M / (M * (mu - lambda))));
 }
 
 float analytics::getL(float lambda, float Po, float M, float mu)

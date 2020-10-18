@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Shell.hpp"
+#include "EventLoop.hpp"
 
 Shell::Shell()
 {
@@ -27,4 +28,7 @@ void Shell::run()
     }
 
     std::cout << "Starting the simulation...\n";
+    EventLoop *eLoop = new EventLoop(n, lambda, mu, M);
+    eLoop->loop();
+    delete eLoop;
 }

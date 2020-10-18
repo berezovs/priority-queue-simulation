@@ -11,11 +11,14 @@ public:
     void setToDeparture(bool departure);
     void setEventTime(float time);
     void setWaitForServiceTime(float time);
+    float getWaitedForServiceTime() const;
+    void setServiceTime(float time);
+    float getServiceTime() const;
     
   
 
 private:
-    float eventTime, waitForServiceTime;
+    float eventTime, waitForServiceTime, serviceTime;
     bool departure;
 };
 

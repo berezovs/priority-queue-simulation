@@ -1,9 +1,10 @@
 #include "Customer.hpp"
+#include <iostream>
 
 Customer::Customer(float arrivalTime)
 {
     this->arrivalTime = arrivalTime;
-    this->queueTime = 0.f;
+    this->queueTime = 0.0f;
     this->next = nullptr;
     this->previous = nullptr;
 }
@@ -36,4 +37,13 @@ void Customer::setQueueTime(float time)
 float Customer::getQueueTime() const
 {
     return this->queueTime;
+}
+
+void Customer::setDepartureTime(float time)
+{
+    this->departureTime = time;
+}
+void Customer::setArrivalTime(float time)
+{
+    this->arrivalTime = time;
 }

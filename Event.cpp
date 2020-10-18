@@ -1,7 +1,10 @@
 #include "Event.hpp"
+#include <iostream>
 
 Event::Event(float eventTime, bool departure) : eventTime{eventTime}, departure{departure}
 {
+    this->waitForServiceTime = 0.0f;
+    this->serviceTime = 0.0f;
 }
 
 float Event::getEventTime() const
@@ -11,7 +14,7 @@ float Event::getEventTime() const
 
 void Event::setEventTime(float time)
 {
-    this->eventTime = eventTime;
+    this->eventTime = time;
 }
 
 void Event::setToDeparture(bool departure)
@@ -27,4 +30,19 @@ bool Event::isDeparture() const
 void Event::setWaitForServiceTime(float time)
 {
     this->waitForServiceTime = time;
+}
+
+float Event::getWaitedForServiceTime() const
+{
+
+    return this->waitForServiceTime;
+}
+
+void Event::setServiceTime(float time)
+{
+    this->serviceTime = time;
+}
+float Event::getServiceTime() const
+{
+    return this->serviceTime;
 }

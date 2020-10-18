@@ -9,11 +9,14 @@ public:
     Customer *getPrevious();
     void setPrevious(Customer *previous);
     float getArrivalTime() const;
+    float getDepartureTime() const;
+    void setDepartureTime(float time);
+    void setArrivalTime(float time);
     void setQueueTime(float time);
     float getQueueTime() const;
 
 private:
-    float arrivalTime, queueTime;
+    float arrivalTime, departureTime, queueTime;
     Customer *next, *previous;
 };
 #endif

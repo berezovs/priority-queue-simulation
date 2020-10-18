@@ -22,8 +22,9 @@ public:
     bool isEmpty();
 
 private:
-    uint32_t size;
+    
     std::priority_queue<Event *, std::vector<Event *>, Comparator> eventQueue;
+    uint32_t size;
 };
 
 #endif

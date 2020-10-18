@@ -9,12 +9,16 @@ public:
     EventLoop(float n, float lambda, float mu, float M);
     float getNextRandomInterval(float avg);
     void loop();
-    void loadFirstArrivals(uint32_t arrivals);
+    void loadArrivals(uint32_t arrivals);
     void processNextEvent();
+    void processStatistics(Event *event);
+    bool moreArrivals();
+    void printStatistics();
 
 private:
-    float serverAvailableCount, mu, lambda, totalNumberOfArrivals,  iddleTime, serviceTime, currentWaitTime;
-    uint32_t numOfFirstArrivals, customerWaitedCount, arr, dep;
+    float totalNumberOfArrivals, lambda, mu, totalServers, serverAvailableCount, idleTime, totalServiceTime, currentWaitTime, totalWaitTime, arr, dep;
+    uint32_t customerWaitedCount;
+    uint32_t const ARRIVAL_NUMBER{200};
     EventQueue *EQueue;
     FIFOQueue *FQueue;
 };

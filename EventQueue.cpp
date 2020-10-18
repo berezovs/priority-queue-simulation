@@ -1,5 +1,6 @@
 #include "EventQueue.hpp"
 #include "Event.hpp"
+#include <stdint.h>
 
 
 EventQueue::EventQueue() : eventQueue{}, size{0}

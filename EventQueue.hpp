@@ -2,6 +2,7 @@
 #define EVENTQUEUE_H
 #include <queue>
 #include <vector>
+#include <stdint.h>
 #include "Event.hpp"
 class Comparator
 {

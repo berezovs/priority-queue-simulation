@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: FIFOQueue.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef FIFOQUEUE_H
 #define FIFOQUEUE_H
 #include "Customer.hpp"

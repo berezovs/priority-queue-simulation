@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: Customer.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 class Customer

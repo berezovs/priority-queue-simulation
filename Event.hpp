@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: Event.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef EVENT_H
 #define EVENT_H
 #include "Customer.hpp"

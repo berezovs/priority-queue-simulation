@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: analytics.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #include "analytics.hpp"
 #include <iostream>
 #include <math.h>

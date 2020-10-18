@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: analytics.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef ANALYTICS_H
 #define ANALYTICS_H
 

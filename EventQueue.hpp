@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: EventQueue.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef EVENTQUEUE_H
 #define EVENTQUEUE_H
 #include <queue>

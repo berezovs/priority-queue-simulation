@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: EventQueue.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #include "EventQueue.hpp"
 #include "Event.hpp"
 #include <stdint.h>

@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: Customer.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #include "Customer.hpp"
 #include <iostream>
 

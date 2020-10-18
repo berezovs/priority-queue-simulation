@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: EventLoop.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #include "EventLoop.hpp"
 #include "EventQueue.hpp"
 #include "FIFOQueue.hpp"
@@ -62,6 +69,7 @@ void EventLoop::printStatistics()
     std::cout << "\tThe average time a customer spends in the system: " << (this->totalServiceTime + this->totalWaitTime) / this->arr << std::endl;
     std::cout << "\tThe average time a customer spends waiting in the queue: " << this->totalWaitTime / (float)this->arr << std::endl;
     std::cout << "\tThe utilization factor for the system: " << analytics::rho(this->lambda, this->totalServers, this->mu) << std::endl;
+    std::cout << "\tThe probability of having to wait in the queue: " << this->customerWaitedCount/this->arr << std::endl;
 
     std::cout << std::endl;
     std::cout << "Analytical Results: " << std::endl;

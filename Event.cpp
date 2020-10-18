@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: Event.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
+
 #include "Event.hpp"
 #include <iostream>
 

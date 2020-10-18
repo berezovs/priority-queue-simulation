@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: Shell.cpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #include <iostream>
 #include "Shell.hpp"
 #include "EventLoop.hpp"
@@ -25,6 +32,7 @@ void Shell::run()
     {
         std::cout << "Enter the number of service channels(M), min = 1, max = 10: ";
         std::cin >> M;
+        std::cin.clear();
     }
 
     std::cout << "Starting the simulation...\n";

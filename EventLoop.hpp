@@ -1,3 +1,10 @@
+/***************************************************************
+  Student Name:Serghei Berezovschi
+  File Name: EventLoop.hpp
+  Assignment number:Project 2-DS&AII
+
+ 
+***************************************************************/
 #ifndef EVENTLOOP_H
 #define EVENTLOOP_H
 #include <stdint.h>

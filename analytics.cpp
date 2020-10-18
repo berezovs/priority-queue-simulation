@@ -3,11 +3,13 @@
   File Name: analytics.cpp
   Assignment number:Project 2-DS&AII
 
- 
+ this namespace contains functions that generate data for the analytical model
 ***************************************************************/
 #include "analytics.hpp"
-#include <iostream>
 #include <math.h>
+#include <stdint.h>
+
+
 
 float analytics::getPo(float lambda, float M, float mu)
 {
@@ -43,7 +45,7 @@ float analytics::rho(float lambda, float M, float mu)
     return lambda / (M * mu);
 }
 
-int analytics::factorial(int factor)
+uint32_t analytics::factorial(uint32_t factor)
 {
     if (factor == 0)
         return 1;

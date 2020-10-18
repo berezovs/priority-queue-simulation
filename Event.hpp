@@ -15,8 +15,6 @@ public:
     Event(float eventTime, bool departure);
     float getEventTime() const;
     bool isDeparture() const;
-    void setToDeparture(bool departure);
-    void setEventTime(float time);
     void setWaitForServiceTime(float time);
     float getWaitedForServiceTime() const;
     void setServiceTime(float time);

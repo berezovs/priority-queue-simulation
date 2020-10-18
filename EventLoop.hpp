@@ -23,7 +23,7 @@ public:
     void printStatistics();
 
 private:
-    float totalNumberOfArrivals, lambda, mu, totalServers, serverAvailableCount, idleTime, totalServiceTime, currentWaitTime, totalWaitTime, arr, dep;
+    float numOfArrivalsToSimulate, lambda, mu, totalServers, serverAvailableCount, idleTime, totalServiceTime, currentWaitTime, totalWaitTime, numOfArrivalsSimulated;
     uint32_t customerWaitedCount;
     uint32_t const ARRIVAL_NUMBER{200};
     EventQueue *EQueue;

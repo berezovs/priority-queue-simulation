@@ -25,7 +25,6 @@ public:
     Event *getNextEvent();
     void removeEvent();
     void insert(Event *event);
-    bool isDeparture() const;
     uint32_t getSize();
     bool isEmpty();
 

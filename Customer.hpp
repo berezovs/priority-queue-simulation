@@ -13,7 +13,7 @@ public:
     Customer(float arrivalTime);
     Customer *getNext();
     void setNext(Customer *next);
-    Customer *getPrevious();
+    Customer *getPrevious() const;
     void setPrevious(Customer *previous);
     float getArrivalTime() const;
     float getDepartureTime() const;

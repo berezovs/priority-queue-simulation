@@ -7,6 +7,7 @@
 ***************************************************************/
 #ifndef ANALYTICS_H
 #define ANALYTICS_H
+#include <stdint.h>
 
 namespace analytics{
     float getPo(float lambda, float M, float mu);
@@ -15,7 +16,7 @@ namespace analytics{
     float getLq(float L, float lambda, float mu);
     float getWq(float Lq, float lambda);
     float rho(float lambda, float M, float mu);
-    int factorial(int factor);
+    uint32_t factorial(uint32_t factor);
 
 };
 

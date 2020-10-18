@@ -3,7 +3,7 @@
   File Name: Shell.cpp
   Assignment number:Project 2-DS&AII
 
- 
+ This class takes user input, and starts the event loop[]
 ***************************************************************/
 #include <iostream>
 #include "Shell.hpp"

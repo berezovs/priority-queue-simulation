@@ -1,3 +1,4 @@
+
 /***************************************************************
   Student Name:Serghei Berezovschi
   File Name: FIFOQueue.hpp
@@ -8,17 +9,17 @@
 #ifndef FIFOQUEUE_H
 #define FIFOQUEUE_H
 #include "Customer.hpp"
+#include <stdint.h>
 
 class FIFOQueue{
 public:
 FIFOQueue();
 void insertCustomer(Customer* customer);
 Customer* removeCustomer();
-int getSize();
-void printAllArrivals();
+uint32_t getSize() const;
 
 private:
 Customer *head, *tail;
-int size;
+uint32_t size;
 };
 #endif

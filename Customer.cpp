@@ -3,7 +3,7 @@
   File Name: Customer.cpp
   Assignment number:Project 2-DS&AII
 
- 
+ This class creates instances of Customer, which are stored in a FIFO queue
 ***************************************************************/
 #include "Customer.hpp"
 #include <iostream>
@@ -23,7 +23,7 @@ void Customer::setNext(Customer *next)
 {
     this->next = next;
 }
-Customer *Customer::getPrevious()
+Customer *Customer::getPrevious() const
 {
     return this->previous;
 }

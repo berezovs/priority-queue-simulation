@@ -20,16 +20,6 @@ float Event::getEventTime() const
     return this->eventTime;
 }
 
-void Event::setEventTime(float time)
-{
-    this->eventTime = time;
-}
-
-void Event::setToDeparture(bool departure)
-{
-    this->departure = true;
-}
-
 bool Event::isDeparture() const
 {
     return this->departure;

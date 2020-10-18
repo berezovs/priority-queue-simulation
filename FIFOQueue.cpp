@@ -3,11 +3,11 @@
   File Name: FIFOQueue.cpp
   Assignment number:Project 2-DS&AII
 
- 
+ This class creates a FIFO queue where customers are stored
 ***************************************************************/
 #include "FIFOQueue.hpp"
 #include "Customer.hpp"
-#include <iostream>
+#include <stdint.h>
 
 FIFOQueue::FIFOQueue()
 {
@@ -53,22 +53,8 @@ Customer *FIFOQueue::removeCustomer()
     }
     return nullptr;
 }
-int FIFOQueue::getSize()
+uint32_t FIFOQueue::getSize()const
 {
     return this->size;
 }
 
-void FIFOQueue::printAllArrivals()
-{
-    Customer *customer = this->head;
-    while (customer)
-    {
-        std::cout << customer->getArrivalTime();
-        if (customer->getNext())
-        {
-            std::cout << " --> ";
-        }
-        customer = customer->getNext();
-    }
-    std::cout<<std::endl;
-}

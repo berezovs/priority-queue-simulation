@@ -3,7 +3,8 @@
   File Name: EventQueue.cpp
   Assignment number:Project 2-DS&AII
 
- 
+ This class creates a priority queue for arrival and departure events
+ std::priority_queue supplied by the STL was used for this purpose
 ***************************************************************/
 #include "EventQueue.hpp"
 #include "Event.hpp"
@@ -14,6 +15,7 @@ EventQueue::EventQueue() : eventQueue{}, size{0}
 {
 }
 
+//operator overload function for the Comparator class
 bool Comparator::operator()(Event *lhs, Event *rhs)
 {
     
@@ -33,10 +35,6 @@ void EventQueue::insert(Event *event)
 {
     eventQueue.push(event);
     size++;
-}
-bool EventQueue::isDeparture() const
-{
-    return this->eventQueue.top()->isDeparture();
 }
 
 uint32_t EventQueue::getSize(){

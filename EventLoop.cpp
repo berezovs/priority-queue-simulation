@@ -14,7 +14,9 @@
 #include <iostream>
 #include <math.h>
 
-EventLoop::EventLoop(float n, float lambda, float mu, float M) : totalNumberOfArrivals{n}, lambda{lambda}, mu{mu}, totalServers{M}
+
+//initializes the class and all class variables
+EventLoop::EventLoop(float n, float lambda, float mu, float M) : numOfArrivalsToSimulate{n}, lambda{lambda}, mu{mu}, totalServers{M}
 {
     srand((unsigned)time(NULL));
     this->EQueue = new EventQueue();
@@ -25,8 +27,10 @@ EventLoop::EventLoop(float n, float lambda, float mu, float M) : totalNumberOfAr
     this->totalServiceTime = 0.0f;
     this->totalWaitTime = 0;
     this->serverAvailableCount = this->totalServers;
+    this->numOfArrivalsSimulated = 0.0f;
 }
 
+//randomly generates a number based on the input parameter
 float EventLoop::getNextRandomInterval(float avg)
 {
 
@@ -34,10 +38,11 @@ float EventLoop::getNextRandomInterval(float avg)
     return -1 * (1 / avg) * log(random);
 }
 
+//start the simulation loop
 void EventLoop::loop()
 {
     this->loadArrivals(ARRIVAL_NUMBER);
-    this->totalNumberOfArrivals -= ARRIVAL_NUMBER;
+    this->numOfArrivalsToSimulate -= ARRIVAL_NUMBER;
     while (!this->EQueue->isEmpty())
     {
 
@@ -45,15 +50,15 @@ void EventLoop::loop()
         if (this->moreArrivals() && (EQueue->getSize() <= this->serverAvailableCount + 1))
         {
             uint32_t arrivalsToLoad = ARRIVAL_NUMBER - this->EQueue->getSize();
-            if (arrivalsToLoad > this->totalNumberOfArrivals)
+            if (arrivalsToLoad > this->numOfArrivalsToSimulate)
             {
-                this->loadArrivals(this->totalNumberOfArrivals);
-                this->totalNumberOfArrivals -= arrivalsToLoad;
+                this->loadArrivals(this->numOfArrivalsToSimulate);
+                this->numOfArrivalsToSimulate -= arrivalsToLoad;
             }
             else
             {
                 this->loadArrivals(arrivalsToLoad);
-                this->totalNumberOfArrivals -= arrivalsToLoad;
+                this->numOfArrivalsToSimulate -= arrivalsToLoad;
             }
         }
     }
@@ -61,15 +66,16 @@ void EventLoop::loop()
     this->printStatistics();
 }
 
+//prints all statistics from the simulation and the analytical model
 void EventLoop::printStatistics()
 {
 
     std::cout << "Simulated Results: " << std::endl;
     std::cout << "\tTotal Idle Time " << this->idleTime << std::endl;
-    std::cout << "\tThe average time a customer spends in the system: " << (this->totalServiceTime + this->totalWaitTime) / this->arr << std::endl;
-    std::cout << "\tThe average time a customer spends waiting in the queue: " << this->totalWaitTime / (float)this->arr << std::endl;
+    std::cout << "\tThe average time a customer spends in the system: " << (this->totalServiceTime + this->totalWaitTime) / this->numOfArrivalsSimulated << std::endl;
+    std::cout << "\tThe average time a customer spends waiting in the queue: " << this->totalWaitTime / (float)this->numOfArrivalsSimulated << std::endl;
     std::cout << "\tThe utilization factor for the system: " << analytics::rho(this->lambda, this->totalServers, this->mu) << std::endl;
-    std::cout << "\tThe probability of having to wait in the queue: " << this->customerWaitedCount/this->arr << std::endl;
+    std::cout << "\tThe probability of having to wait in the queue: " << this->customerWaitedCount/this->numOfArrivalsSimulated << std::endl;
 
     std::cout << std::endl;
     std::cout << "Analytical Results: " << std::endl;
@@ -81,6 +87,7 @@ void EventLoop::printStatistics()
     std::cout << "\tThe utilization factor for the system: " << this->totalServiceTime / (this->totalServers * (this->totalServiceTime)) << std::endl;
 }
 
+//loads arrivals into the PQueue(number of arrivals specified by the function parameter)
 void EventLoop::loadArrivals(uint32_t arrivals)
 {
     for (uint32_t i = 0; i < arrivals; ++i)
@@ -89,11 +96,13 @@ void EventLoop::loadArrivals(uint32_t arrivals)
     }
 }
 
+//return true if there are more arrivals to be simulated
 bool EventLoop::moreArrivals()
 {
-    return this->totalNumberOfArrivals > 0;
+    return this->numOfArrivalsToSimulate > 0;
 }
 
+//processes an event in the PQ with the highest priority
 void EventLoop::processNextEvent()
 {
 
@@ -103,7 +112,7 @@ void EventLoop::processNextEvent()
 
     if (!this->EQueue->getNextEvent()->isDeparture())
     {
-        arr++;
+        this->numOfArrivalsSimulated++;
         if (this->serverAvailableCount > 0)
         {
             this->serverAvailableCount--;
@@ -127,7 +136,6 @@ void EventLoop::processNextEvent()
     }
     else
     {
-        dep++;
         this->serverAvailableCount++;
         currentTime = currentEvent->getEventTime();
         this->processStatistics(currentEvent);
@@ -145,6 +153,7 @@ void EventLoop::processNextEvent()
     }
 }
 
+//updates variables that make up the statistical model
 void EventLoop::processStatistics(Event *event)
 {
     this->currentWaitTime = event->getWaitedForServiceTime();
@@ -155,7 +164,6 @@ void EventLoop::processStatistics(Event *event)
     this->totalServiceTime += event->getServiceTime();
     if (this->serverAvailableCount == 0)
     {
-        std::cout << "Accumulated idle time" << std::endl;
         this->idleTime += this->EQueue->getNextEvent()->getEventTime() - event->getEventTime();
     }
 }

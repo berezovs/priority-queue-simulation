@@ -23,7 +23,7 @@ void Shell::run()
 
     while (M > MAX_NUM_OF_SERVERS || M < MIN_NUM_OF_SERVERS)
     {
-        std::cout << "Enter the number of service channels(M)--min = 1, max = 10: ";
+        std::cout << "Enter the number of service channels(M), min = 1, max = 10: ";
         std::cin >> M;
     }
 

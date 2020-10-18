@@ -60,14 +60,14 @@ void EventLoop::printStatistics()
     std::cout << "Simulated Results: " << std::endl;
     std::cout << "\tTotal Idle Time " << this->idleTime << std::endl;
     std::cout << "\tThe average time a customer spends in the system: " << (this->totalServiceTime + this->totalWaitTime) / this->arr << std::endl;
-    std::cout << "\tThe average time a customerc spends waiting in the queue: " << this->totalWaitTime / (float)this->customerWaitedCount << std::endl;
+    std::cout << "\tThe average time a customer spends waiting in the queue: " << this->totalWaitTime / (float)this->arr << std::endl;
     std::cout << "\tThe utilization factor for the system: " << analytics::rho(this->lambda, this->totalServers, this->mu) << std::endl;
 
     std::cout << std::endl;
     std::cout << "Analytical Results: " << std::endl;
     float Po = analytics::getPo(this->lambda, this->totalServers, this->mu);
     float L = analytics::getL(this->lambda, Po, this->totalServers, this->mu);
-    std::cout << "\tTotal Idle Time " << Po << std::endl;
+    std::cout << "\tTotal Idle Time: " << Po << std::endl;
     std::cout << "\tThe average time a customer spends in the system: " << analytics::getW(this->lambda, L) << std::endl;
     std::cout << "\tThe average time a customer spends waiting in the queue: " << analytics::getWq(analytics::getLq(L, this->lambda, this->mu), this->lambda) << std::endl;
     std::cout << "\tThe utilization factor for the system: " << this->totalServiceTime / (this->totalServers * (this->totalServiceTime)) << std::endl;
